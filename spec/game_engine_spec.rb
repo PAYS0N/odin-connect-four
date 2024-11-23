@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative("../lib/odin_connect_four")
+require_relative("../lib/game_engine")
 
 describe OdinConnectFour::GameEngine do
   context "when game played" do
