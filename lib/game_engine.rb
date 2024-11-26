@@ -22,7 +22,9 @@ module OdinConnectFour
     end
 
     def play_round
-      move = @player.grab_move - 1
+      full = []
+      @game_state.each_with_index { |arr, index| full.push(index) if arr.length == 6 }
+      move = @player.grab_move(full) - 1
       @game_state[move].push(@player.char)
       game_over?(move)
       true

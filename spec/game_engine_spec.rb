@@ -55,6 +55,12 @@ describe OdinConnectFour::GameEngine do
       allow(game_round).to receive(:game_over?)
     end
 
+    it "finds all rows that are full" do
+      game_round.instance_variable_set(:@game_state, [%w[O O O O O O], ["O"], ["O"], ["O"], %w[O O O O O O], [], []])
+      expect(player1).to receive(:grab_move).with([0, 4])
+      game_round.play_round
+    end
+
     it "sends call to get move" do
       expect(player1).to receive(:grab_move)
       game_round.play_round
