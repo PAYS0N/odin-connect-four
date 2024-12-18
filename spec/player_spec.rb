@@ -7,11 +7,11 @@ describe OdinConnectFour::Player do
     subject(:player_char) { described_class.new }
 
     before do
-      allow(player_char).to receive(:verify_input).and_return("@")
+      allow(OdinConnectFour::InputValidation).to receive(:verify_input).and_return("@")
     end
 
     it "sends call to get verified input" do
-      expect(player_char).to receive(:verify_input)
+      expect(OdinConnectFour::InputValidation).to receive(:verify_input)
       player_char.grab_char
     end
 
@@ -24,11 +24,11 @@ describe OdinConnectFour::Player do
     subject(:player_move) { described_class.new }
 
     before do
-      allow(player_move).to receive(:verify_input).and_return(3)
+      allow(OdinConnectFour::InputValidation).to receive(:verify_input).and_return(3)
     end
 
     it "sends call to get verified input" do
-      expect(player_move).to receive(:verify_input)
+      expect(OdinConnectFour::InputValidation).to receive(:verify_input)
       player_move.grab_move([0])
     end
   end
