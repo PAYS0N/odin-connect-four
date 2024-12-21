@@ -7,6 +7,10 @@ module OdinConnectFour
   class Player
     attr_accessor :char
 
+    def setup
+      @char = grab_char
+    end
+
     def grab_move(full_rows)
       prompt = "What row would you like to place a piece in?"
       error_msg = "Please enter a number from 1 to 7. The row must not be full."

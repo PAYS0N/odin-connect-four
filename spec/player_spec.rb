@@ -3,6 +3,23 @@
 require_relative("../lib/player")
 
 describe OdinConnectFour::Player do
+  describe "#setup" do
+    subject(:player_setup) { described_class.new }
+
+    before do
+      allow(player_setup).to receive(:grab_char).and_return("@")
+    end
+
+    it "sends call to get char" do
+      expect(player_setup).to receive(:grab_char)
+      player_setup.setup
+    end
+
+    it "sets player char" do
+      expect { player_setup.setup }.to change { player_setup.instance_variable_get(:@char) }.to("@")
+    end
+  end
+
   describe "#grab_char" do
     subject(:player_char) { described_class.new }
 
